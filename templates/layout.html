@@ -1,0 +1,33 @@
+<!doctype html>
+<!--[if IE 6 ]>    <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Quotes.txt</title>
+		
+		<!-- Stylesheets -->
+		<link href="{{ MEDIA_URL }}stylesheets/reset.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="{{ MEDIA_URL }}stylesheets/app.css" media="screen" rel="stylesheet" type="text/css">
+		
+		<!-- Favicons -->
+		<link rel="icon" type="image/png" href="{{ MEDIA_URL }}favicon.png">
+		<!--[if IE]><link rel="shortcut icon" href="{{ MEDIA_URL }}favicon.ico"><![endif]-->
+	</head>
+	<body>
+		<div id="container">
+			<div id="page">
+				{% block body %}{% endblock %}
+			</div>
+		</div>
+		
+		<!-- Javascripts -->
+		<script src="http://www.google.com/jsapi?ABQIAAAAUTyv0920yXxIFeANjtLNnRTQKH4Zgj4ll8xldJzJKy5hzSIZ6xSQA8_jvU3oT7Tv3vFqtOtB1_-3-A"></script>
+		<script>google.load('jquery', '1.5');</script>
+		<script>google.load('jqueryui', '1.8');</script>
+		<script>SITE_URL = '{{ SITE_URL|default:"/" }}'; // Set our site's URL</script>
+	</body>
+</html>
+<!-- You can have twenty-one sons and be blood when they marry my daughters -->
