@@ -1,5 +1,6 @@
-= Quotes.txt =
-== Keeping track of the stupid things you and your friends say online that no one (else) should read ==
+# Quotes.txt #
+
+## Keeping track of the stupid things you and your friends say online that no one (else) should read ##
 
 Quotes.txt is a simple Django web app that allows you to post funny things you and your friends say in chat to a "quotes.txt" file (in reality, some kind of database) and review all of the funny things you've said over the years, but with zero context. It's inspired by the quotes.txt [@allanlawlor](http://twitter.com/allanlawlor) and I kept while I was working in government.
 
