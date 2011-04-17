@@ -82,6 +82,8 @@ TEMPLATE_DIRS = (
     path('templates'),
 )
 
+AUTH_PROFILE_MODULE = 'auth_extras.UserProfile'
+
 INSTALLED_APPS = (
     'auth_extras',
     'chats',
