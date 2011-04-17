@@ -86,6 +86,9 @@ INSTALLED_APPS = (
     'auth_extras',
     'chats',
     
+    # Provide ActiveRecord-style automatic timestamps for models that want them
+    'automatic_timestamps',
+    
     # We use South for migrations
     'south',
     
