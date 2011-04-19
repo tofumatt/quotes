@@ -82,7 +82,14 @@ TEMPLATE_DIRS = (
     path('templates'),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'chats.context_processors.django_conf',
+    'django.contrib.auth.context_processors.auth',
+)
+
 AUTH_PROFILE_MODULE = 'auth_extras.UserProfile'
+
+SITE_URL = '/'
 
 INSTALLED_APPS = (
     'auth_extras',
