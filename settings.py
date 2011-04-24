@@ -87,7 +87,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
 )
 
-AUTH_PROFILE_MODULE = 'auth_extras.UserProfile'
+AUTH_PROFILE_MODULE = 'profiles.UserProfile'
 
 SITE_URL = '/'
 
