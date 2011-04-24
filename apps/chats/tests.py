@@ -15,7 +15,7 @@ class QuoteTest(TestCase):
         Tests that a quote can exist with or without a related Chat object.
         """
         
-        user = User(username='duffman', password=DEFAULT_PASSWORD)
+        user = User.objects.create_user('duffman', 'duffman@test.com', DEFAULT_PASSWORD)
         user.save()
         
         chat = Chat(title='We discussed things over many lines')
@@ -28,7 +28,9 @@ class QuoteTest(TestCase):
         quote_without_chat.save()
         
         self.assertTrue(quote_with_chat.id)
+        self.assertIsNotNone(quote_with_chat.chat)
         self.assertTrue(quote_without_chat.id)
+        self.assertIsNone(quote_without_chat.chat)
     
     def test_friendgroup_authorizations(self):
         """
