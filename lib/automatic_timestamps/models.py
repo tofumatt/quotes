@@ -12,8 +12,8 @@ class TimestampModel(models.Model):
         abstract = True
     
     # Timestamps!
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    created_at = models.DateTimeField(editable=False)
+    updated_at = models.DateTimeField(editable=False)
     
     def save(self, *args, **kwargs):
         """
