@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+	<h3>{% block title %}{{ _('The Ten Most Recent Quotes') }}{% endblock %}</h3>
+	
+	{% for chat in chats %}
+		{{ chat.as_html|safe }}
+	{% empty %}
+		<p>{{ _("Scratch that; there aren't any quotes for any of the groups you're in. You and your friends must not be very funny.")}}</p>
+	{% endfor %}
+{% endblock body %}

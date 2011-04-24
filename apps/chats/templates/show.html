@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}{% if chat %}{{ chat }}{% else %}{{ _("Unauthorized") }}{% endif %}{% endblock %}
+
+{% block body %}
+	{% if chat %}
+		{{ chat.as_html|safe }}
+	{% else %}
+		Can't read that one!
+	{% endif %}
+{% endblock body %}
