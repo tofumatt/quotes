@@ -42,6 +42,5 @@ def new(request):
     form = PublicChatForm()
     
     return render_to_response('new.html', {
-        'chat': chat,
         'form': form,
     }, context_instance=RequestContext(request))
