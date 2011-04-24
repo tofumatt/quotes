@@ -10,33 +10,9 @@ DEFAULT_AUTHOR = 'Ned Flanders'
 DEFAULT_PASSWORD = 'foobarpass'
 LOREM = 'Lorem ipsum dolor sit amet.'
 
-class QuoteTest(TestCase):
-    def test_quote_optional_relationships(self):
-        """
-        Tests that a quote can exist with or without a related Chat object.
-        """
-        
-        user = User.objects.create_user('duffman', 'duffman@test.com', DEFAULT_PASSWORD)
-        user.save()
-        
-        chat = Chat(title='We discussed things over many lines')
-        chat.save()
-        
-        quote_with_chat = Quote(author=DEFAULT_AUTHOR, text=LOREM, posted_by=user, chat=chat)
-        quote_with_chat.save()
-        
-        quote_without_chat = Quote(author=DEFAULT_AUTHOR, text=LOREM, posted_by=user)
-        quote_without_chat.save()
-        
-        self.assertTrue(quote_with_chat.id)
-        self.assertIsNotNone(quote_with_chat.chat)
-        self.assertTrue(quote_without_chat.id)
-        self.assertIsNone(quote_without_chat.chat)
-    
+class ChatTest(TestCase):
     def test_friendgroup_authorizations(self):
-        """
-        Test that chats and quotes are protected accordingly for different users.
-        """
+        """Test that chats are protected accordingly for different users."""
         
         friendgroup_no_matts_allowed = FriendGroup(name='No Matts Allowed!')
         friendgroup_no_matts_allowed.save()
@@ -48,31 +24,31 @@ class QuoteTest(TestCase):
         user_matt.save()
         user_matt.get_profile().friend_groups.add(friendgroup_webchat)
         
-        quote_anon = Quote(author=DEFAULT_AUTHOR, text=LOREM, posted_by=user_matt)
-        quote_anon.save()
+        chat_anon = Chat(text=LOREM, posted_by=user_matt)
+        chat_anon.save()
         
-        quote_no_matts = Quote(author=DEFAULT_AUTHOR, text=LOREM, posted_by=user_matt)
-        quote_no_matts.save()
-        quote_no_matts.friend_groups.add(friendgroup_no_matts_allowed)
+        chat_no_matts = Chat(text=LOREM, posted_by=user_matt)
+        chat_no_matts.save()
+        chat_no_matts.friend_groups.add(friendgroup_no_matts_allowed)
         
-        quote_webchat = Quote(author=DEFAULT_AUTHOR, text=LOREM, posted_by=user_matt)
-        quote_webchat.save()
-        quote_webchat.friend_groups.add(friendgroup_webchat)
+        chat_webchat = Chat(text=LOREM, posted_by=user_matt)
+        chat_webchat.save()
+        chat_webchat.friend_groups.add(friendgroup_webchat)
         
         client_matt = Client()
         client_matt.login(username='matt', password=DEFAULT_PASSWORD)
         # Test logged-in user accessing anonymous and protected quotes
-        response = client_matt.get('/quotes/{id}'.format(id=quote_anon.id))
+        response = client_matt.get('/chats/{id}'.format(id=chat_anon.id))
         self.assertEquals(response.status_code, 200)
-        response = client_matt.get('/quotes/{id}'.format(id=quote_no_matts.id))
+        response = client_matt.get('/chats/{id}'.format(id=chat_no_matts.id))
         self.assertEquals(response.status_code, 403)
-        response = client_matt.get('/quotes/{id}'.format(id=quote_webchat.id))
+        response = client_matt.get('/chats/{id}'.format(id=chat_webchat.id))
         self.assertEquals(response.status_code, 200)
         
         client_anon = Client()
         # Test anonymous user accessing anonymous quotes
-        response = client_anon.get('/quotes/{id}'.format(id=quote_anon.id))
+        response = client_anon.get('/chats/{id}'.format(id=chat_anon.id))
         self.assertEquals(response.status_code, 200)
         # Test anonymous user accessing protected quotes
-        response = client_anon.get('/quotes/{id}'.format(id=quote_webchat.id))
+        response = client_anon.get('/chats/{id}'.format(id=chat_webchat.id))
         self.assertEquals(response.status_code, 403)
