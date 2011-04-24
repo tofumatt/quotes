@@ -27,7 +27,7 @@ class Quote(TimestampModel):
     chat = models.ForeignKey(Chat, blank=True, null=True)
     # A quote without any associated Friend Groups is considered public and will
     # be viewable to the entire world!
-    friend_groups = models.ManyToManyField('auth_extras.FriendGroup', blank=True)
+    friend_groups = models.ManyToManyField('profiles.FriendGroup', blank=True)
     text = models.TextField()
     user = models.ForeignKey(User)
     

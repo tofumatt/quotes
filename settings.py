@@ -92,8 +92,8 @@ AUTH_PROFILE_MODULE = 'auth_extras.UserProfile'
 SITE_URL = '/'
 
 INSTALLED_APPS = (
-    'auth_extras',
     'chats',
+    'profiles',
     
     # Provide ActiveRecord-style automatic timestamps for models that want them
     'automatic_timestamps',
