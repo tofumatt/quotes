@@ -18,6 +18,31 @@ class Chat(TimestampModel):
     posted_by = models.ForeignKey(User)
     text = models.TextField()
     
+    def as_html(self, tag='div'):
+        """
+        Return an HTML representation of this chat, including tags marking
+        the author and text selection accordingly.
+        
+        Use the tag argument to customize the tag that wraps each line in a chat.
+        """
+        
+        html = u''
+        for line in self.text.splitlines():
+            line_sections = line.split(': ', 1)
+            if len(line_sections) > 1:
+                html += u'<{tag} class="line"><span class="author">{author}</span>: <span class="text">{text}</span></{tag}>'.format(
+                    author=line_sections[0],
+                    tag=tag,
+                    text=line_sections[1],
+                )
+            else:
+                html += u'<{tag} class="no-author line"><span class="text">{text}</span></{tag}>'.format(
+                    tag=tag,
+                    text=line_sections[0],
+                )
+        
+        return html
+    
     def __unicode__(self):
         """Return the first six words from this chat's text field."""
         return truncate_words(self.text, 6)
