@@ -1,9 +1,8 @@
 from django.db import models
-from django.forms import ModelForm
-from automatic_timestamps.models import TimestampModel
-
 from django.contrib.auth.models import User
 from django.utils.text import truncate_words
+
+from automatic_timestamps.models import TimestampModel
 
 
 class Chat(TimestampModel):
@@ -28,7 +27,7 @@ class Quote(TimestampModel):
     # A quote without any associated Friend Groups is considered public and will
     # be viewable to the entire world!
     friend_groups = models.ManyToManyField('profiles.FriendGroup', blank=True)
-    text = models.TextField()
+    text = models.CharField(max_length=1000)
     user = models.ForeignKey(User)
     
     def __unicode__(self):

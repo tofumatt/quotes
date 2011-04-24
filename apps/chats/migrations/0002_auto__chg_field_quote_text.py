@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Changing field 'Quote.text'
-        db.alter_column('chats_quote', 'text', self.gf('django.db.models.fields.CharField')(max_length=1024))
+        db.alter_column('chats_quote', 'text', self.gf('django.db.models.fields.CharField')(max_length=1000))
 
 
     def backwards(self, orm):
