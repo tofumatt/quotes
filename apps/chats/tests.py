@@ -21,10 +21,10 @@ class QuoteTest(TestCase):
         chat = Chat(title='We discussed things over many lines')
         chat.save()
         
-        quote_with_chat = Quote(text=LOREM, user=user, chat=chat)
+        quote_with_chat = Quote(text=LOREM, posted_by=user, chat=chat)
         quote_with_chat.save()
         
-        quote_without_chat = Quote(text=LOREM, user=user)
+        quote_without_chat = Quote(text=LOREM, posted_by=user)
         quote_without_chat.save()
         
         self.assertTrue(quote_with_chat.id)
@@ -47,14 +47,14 @@ class QuoteTest(TestCase):
         user_matt.save()
         user_matt.get_profile().friend_groups.add(friendgroup_webchat)
         
-        quote_anon = Quote(text=LOREM, user=user_matt)
+        quote_anon = Quote(text=LOREM, posted_by=user_matt)
         quote_anon.save()
         
-        quote_no_matts = Quote(text=LOREM, user=user_matt)
+        quote_no_matts = Quote(text=LOREM, posted_by=user_matt)
         quote_no_matts.save()
         quote_no_matts.friend_groups.add(friendgroup_no_matts_allowed)
         
-        quote_webchat = Quote(text=LOREM, user=user_matt)
+        quote_webchat = Quote(text=LOREM, posted_by=user_matt)
         quote_webchat.save()
         quote_webchat.friend_groups.add(friendgroup_webchat)
         
