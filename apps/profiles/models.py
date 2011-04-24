@@ -12,6 +12,7 @@ class FriendGroup(TimestampModel):
     create/view chats and quotes in this group.
     """
     
+    admins = models.ManyToManyField(User)
     name = models.CharField(max_length=200)
     
     def __unicode__(self):
