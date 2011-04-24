@@ -1,0 +1,456 @@
+/** Site-wide, common styles */
+body {
+	background: #f3f5f4;
+	color: #555;
+	font-family: "Helvetica Neue", Helvetica, FreeSans, Arial, Verdana, sans-serif;
+	font-size: 1em;
+	line-height: 1.3em;
+	text-shadow: #fefefe 1px 1px 0;
+}
+
+#page {
+	margin: 20px auto 0;
+	width: 700px;
+}
+
+header {
+	display: block;
+	margin: 0 0 50px;
+}
+
+footer {
+	border-top: 1px solid #333;
+	color: #666;
+	margin: 40px auto 0;
+	padding: 9px 0 0;
+}
+
+/** Developer styles */
+#djDebug {
+	text-shadow: none;
+}
+
+/** Common elements */
+::selection {
+	background: rgba(204, 20, 20, .7);
+	color: #fefefe;
+	text-shadow: #232323 1px 1px 2px;
+}
+
+::-moz-selection {
+	background: rgba(204, 20, 20, .7);
+	color: #fefefe;
+	text-shadow: #232323 1px 1px 2px;
+}
+
+::-webkit-selection {
+	background: rgba(204, 20, 20, .7);
+	color: #fefefe;
+	text-shadow: #232323 1px 1px 2px;
+}
+
+a {
+	color: #3d4e99;
+	text-decoration: underline;
+	transition: all 100ms ease-in-out;
+	-moz-transition: all 100ms ease-in-out;
+	-o-transition: all 100ms ease-in-out;
+	-webkit-transition: all 100ms ease-in-out;
+}
+	
+	a:hover, a:focus {
+		background: #a5adcc;
+		background: rgba(61, 78, 153, .25);
+		color: #030303;
+		text-decoration: none;
+		text-shadow: none;
+	}
+	
+	a:active {
+		background: transparent;
+		color: #3d4e99;
+	}
+
+blockquote {
+	display: block;
+	min-height: 30px;
+	padding: 5px 0 0 40px;
+}
+
+blockquote + p cite {
+	font-weight: bold;
+	padding: 0 0 0 40px;
+}
+
+h1 {
+	background: #030303;
+	color: #fefef4;
+	font-family: Futura, Verdana, sans-serif;
+	font-size: 24px;
+	font-variant: small-caps;
+	line-height: 32px;
+	text-align: center;
+	text-shadow: #444 1px 1px 1px;
+}
+
+h2 {
+	color: #252525;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1.2em;
+	text-align: center;
+	text-shadow: #aaa 1px 1px 1px;
+}
+
+pre {
+	font-family: "DejaVu Sans Mono", Monaco, Courier, "Courier New", monospace;
+}
+
+small {
+	font-size: .75em;
+}
+
+sup {
+	font-size: .75em;
+	vertical-align: super;
+}
+
+sub {
+	font-size: .75em;
+	vertical-align: sub;
+}
+
+table td, table th {
+	border: 1px solid #ccc;
+	padding: .25em;
+}
+
+p, ul, ol, dl {
+	font-size: .9em;
+	line-height: 1.3em;
+	margin: 0 31% 1em 0;
+}
+
+li {
+	font-size: .95em;
+	list-style: outside disc;
+	margin: 0 0 0 2em;
+}
+
+ol li {
+	list-style: outside decimal;
+}
+
+dl dt {
+	clear: both;
+	float: left;
+	font-weight: bold;
+	width: 20%;
+}
+
+dl dd {
+	float: left;
+	margin: 0 0 .25em;
+	width: 80%;
+}
+
+/** Pagination styles */
+.pagination {
+	margin: 10px 0;
+}
+
+.pagination .pagination-item {
+	float: left;
+	margin: 0 3px 0 0;
+	outline: none;
+	padding: 3px 9px;
+	text-decoration: none;
+}
+
+.pagination .current {
+	background: #e5e5e5;
+	color: #252525;
+}
+
+/** Common form elements */
+label, input, select, textarea {
+	transition: all 100ms ease-in-out;
+	-moz-transition: all 100ms ease-in-out;
+	-o-transition: all 100ms ease-in-out;
+	-webkit-transition: all 100ms ease-in-out;
+}
+
+label {
+	color: #252525;
+	display: block;
+}
+	
+	label:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+label span.required, span.required {
+	color: #d8000c;
+}
+
+input[type=text], input[type=password], select, textarea {
+	background: #fefefe;
+	border: 1px solid #aaa;
+	box-shadow: 0 0 3px #ddd;
+	-moz-box-shadow: 0 0 3px #ddd;
+	-webkit-box-shadow: 0 0 3px #ddd;
+	display: block;
+	font-size: .9em;
+	line-height: 1.2em;
+	padding: 1px 3px;
+	width: 300px;
+}
+	
+	input.input-placeholder {
+		color: #aaa;
+	}
+
+select {
+	outline: 0;
+	width: 208px;
+}
+	
+	select option {
+		outline: 0;
+		text-indent: 6px;
+	}
+
+textarea {
+	height: 2.2em;
+	line-height: 1.1em;
+	overflow-y: hidden;
+	padding: 3px;
+	width: 320px;
+}
+
+input:hover, select:hover, textarea:hover, input:active, select:active, textarea:active {
+	border-color: #666;
+}
+
+input:focus, select:focus, textarea:focus {
+	border-color: #1e72b2;
+	box-shadow: 0 0 6px #1e72b2;
+	-moz-box-shadow: 0 0 6px #1e72b2;
+	-webkit-box-shadow: 0 0 6px #1e72b2;
+}
+
+/** jQuery Tabs */
+.ui-tabs-hide {
+	display: none;
+}
+
+/** Common classes */
+.block {
+	display: block;
+}
+
+table.bold-headers th {
+	font-weight: bold;
+}
+
+.border {
+	border: 1px solid #ccc;
+}
+
+.box-shadow {
+	box-shadow: 3px 3px 6px #000;
+	-moz-box-shadow: 3px 3px 6px #000;
+	-webkit-box-shadow: 3px 3px 6px #000;
+}
+
+.box-shadow-blur {
+	box-shadow: 0 1px 6px #030303;
+	-moz-box-shadow: 0 1px 6px #030303;
+	-webkit-box-shadow: 0 1px 6px #030303;
+}
+
+.box-shadow-hard {
+	box-shadow: 3px 3px 3px #000;
+	-moz-box-shadow: 3px 3px 3px #000;
+	-webkit-box-shadow: 3px 3px 3px #000;
+}
+
+.box-shadow-soft {
+	box-shadow: 0 1px 6px #ccc;
+	-moz-box-shadow: 0 1px 6px #ccc;
+	-webkit-box-shadow: 0 1px 6px #ccc;
+}
+
+.button, .button:hover, .button:focus {
+	background: url(../images/new/button-bg.png) 0 2.5px repeat-x;
+	border: 1px solid #595959;
+	color: #141414;
+	cursor: pointer;
+	font-size: 1.2em;
+	margin: 5px 0;
+	outline: 0;
+	padding: 5px 15px;
+	text-decoration: none;
+	text-shadow: 0 0 3px rgba(0, 0, 0, 0.15) !important;
+}
+
+.button:hover, .button:focus {
+	background: #eee;
+	box-shadow: 0 1px 6px #030303;
+	-moz-box-shadow: 0 1px 6px #030303;
+	-webkit-box-shadow: 0 1px 6px #030303;
+	text-shadow: 0 0 6px #c8c8c8 !important;
+}
+
+.button:active {
+	box-shadow: 0 1px 12px #030303;
+	-moz-box-shadow: 0 1px 12px #030303;
+	-webkit-box-shadow: 0 1px 12px #030303;
+	text-shadow: 0 0 6px #000 !important;
+}
+
+.clear {
+	clear: both;
+}
+
+.clear-left {
+	clear: left;
+}
+
+.clear-right {
+	clear: right;
+}
+
+.disabled, .disabled *, .disabled *:hover { /* Grey out text inside a container marked "disabled" */
+	border-color: #aaa;
+	color: #aaa !important;
+}
+
+p.footnote {
+	font-size: .8em;
+	text-align: right;
+}
+
+p.full-width, ul.full-width, ol.full-width, dl.full-width {
+	margin-right: 6%;
+}
+
+.sidebar p.full-width {
+	margin-right: 0;
+}
+
+.no-bullets li {
+	list-style: none;
+}
+
+.no-margins li {
+	margin-left: 0;
+}
+
+a.photo-link {
+	display: block;
+	outline: 0;
+	padding: 2px;
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
+}
+
+a.photo-link:hover, a.photo-link:focus {
+	background: #9cf;
+}
+
+a.photo-link:active {
+	background: #f99;
+}
+
+.relative {
+	position: relative;
+}
+
+.rounded {
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/*
+	Hide elements or position them off-screen. Use js-hide and
+	js-off-screen to apply hidden-type styles only to elements
+	if JavaScript is enabled on this page.
+*/
+.hide, body.js .js-hide, body .js-show {
+	display: none;
+}
+
+.off-screen, body.js .js-off-screen {
+	position: absolute;
+	top: 0;
+	text-indent: -9999px;
+}
+
+/** Messages */
+#messages-container .message {
+	border: 2px solid;
+	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	margin: 0 auto 10px 0;
+	padding: 5px;
+	text-align: center;
+	text-shadow: none;
+	width: 90%;
+}
+
+#messages-container .message p, #messages-container .message ul {
+	margin: 0 auto;
+	padding: 0 12px 0 0;
+}
+
+#messages-container .message li {
+	font-size: 0.9em;
+	text-align: left;
+}
+
+#messages-container .message a {
+	color: #030303 !important;
+	text-shadow: none !important;
+}
+
+#messages-container .message a:hover, #messages-container .message a:focus {
+	background: #fefefe;
+}
+
+#messages-container .error {
+	background: #ffb3b3;
+	border-color: #8c3c3c;
+	box-shadow: 0 0 3px #8c3c3c;
+	-moz-box-shadow: 0 0 3px #8c3c3c;
+	-webkit-box-shadow: 0 0 3px #8c3c3c;
+	color: #381818;
+}
+
+#messages-container .alert {
+	background: #ffe8b3;
+	border-color: #8c713c;
+	box-shadow: 0 0 3px #8c713c;
+	-moz-box-shadow: 0 0 3px #8c713c;
+	-webkit-box-shadow: 0 0 3px #8c713c;
+	color: #2b1e04;
+}
+
+#messages-container .success {
+	background: #b9ffb3;
+	border-color: #428c3c;
+	box-shadow: 0 0 3px #428c3c;
+	-moz-box-shadow: 0 0 3px #428c3c;
+	-webkit-box-shadow: 0 0 3px #428c3c;
+	color: #1b3818;
+}
