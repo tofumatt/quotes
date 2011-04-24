@@ -21,8 +21,7 @@ class Quote(TimestampModel):
     specific groups.
     """
     
-    # Chat relationships are nullable; most Quotes likely don't have a related
-    # Chat object.
+    # Most Quotes likely don't have a related Chat object.
     chat = models.ForeignKey(Chat, blank=True, null=True)
     # A quote without any associated Friend Groups is considered public and will
     # be viewable to the entire world!
@@ -32,9 +31,10 @@ class Quote(TimestampModel):
     
     def __unicode__(self):
         """
-        Return the text found inside this quote.
+        Return the name of the quote's authoor and text found inside
+        this quote.
         """
-        return u"{name}: {text_excerpt}".format(
-            name=self.user.username,
+        return u"{author}: {text_excerpt}".format(
+            author=self.user.username,
             text_excerpt=self.text# truncate_words(self.text, 5)
         )
