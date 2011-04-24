@@ -17,17 +17,18 @@ class Chat(TimestampModel):
 class Quote(TimestampModel):
     """
     A quote is a single-line text excerpt from a chat (usually purposefully
-    out of context) belonging to a certain user. It is often view-restricted to
+    out of context) posted by a user. It is often view-restricted to
     specific groups.
     """
     
+    author = models.CharField(max_length=80)
     # Most Quotes likely don't have a related Chat object.
     chat = models.ForeignKey(Chat, blank=True, null=True)
     # A quote without any associated Friend Groups is considered public and will
     # be viewable to the entire world!
     friend_groups = models.ManyToManyField('profiles.FriendGroup', blank=True)
+    posted_by = models.ForeignKey(User)
     text = models.CharField(max_length=1000)
-    user = models.ForeignKey(User)
     
     def __unicode__(self):
         """
@@ -35,6 +36,6 @@ class Quote(TimestampModel):
         this quote.
         """
         return u"{author}: {text_excerpt}".format(
-            author=self.user.username,
+            author=self.author,
             text_excerpt=self.text# truncate_words(self.text, 5)
         )
