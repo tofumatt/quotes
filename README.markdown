@@ -12,6 +12,16 @@ This is different from quote database sites like [bash.org](http://bash.org) in 
 
 The last part is handy if you run a chat in Campfire or on IRC and want to create a bot that will automatically post a recent quote to the site. I encourage the bot to respond to `>> quotes.txt`, because that's kind of hilarious.
 
+## Installation/Setup ##
+
+You'll want to use virtualenv. You need Python 2.6 to run Quotes.txt. South is used for database migrations.
+
+**TODO:** Provide more details about getting this Django app up and running.
+
 ## Acknowledgments ##
 
 Thanks to [Mozilla's playdoh](https://github.com/mozilla/playdoh) for some boilerplate ideas about handling local settings, app/lib/vendor folders, and package requirements.
+
+## License ##
+
+Quotes.txt is MIT-licensed. You can do pretty much whatever you want with it, ftw.
