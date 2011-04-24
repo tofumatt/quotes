@@ -9,12 +9,18 @@ from chats.forms import *
 from chats.models import *
 
 
-@cache_page(60 * 1)
 def index(request):
     """Display the site's root/home page."""
     
+    chats = Chat.objects.all().order_by('-created_at')
+    
+    if request.user.is_authenticated():
+        chats = chats.filter(friend_groups__in=request.user.get_profile().friend_groups.all().values_list('id'))
+    else:
+        chats = chats.filter(friend_groups__isnull=True)
+    
     return render_to_response('index.html', {
-        
+        'chats': chats[:10],
     }, context_instance=RequestContext(request))
 
 def show(request, id):
