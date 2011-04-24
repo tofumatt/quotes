@@ -11,3 +11,7 @@ This is different from quote database sites like [bash.org](http://bash.org) in 
   * There is an HTTP API for posting your quotes in automated fashions
 
 The last part is handy if you run a chat in Campfire or on IRC and want to create a bot that will automatically post a recent quote to the site. I encourage the bot to respond to `>> quotes.txt`, because that's kind of hilarious.
+
+## Acknowledgments ##
+
+Thanks to [Mozilla's playdoh](https://github.com/mozilla/playdoh) for some boilerplate ideas about handling local settings, app/lib/vendor folders, and package requirements.
