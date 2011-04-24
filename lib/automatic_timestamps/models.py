@@ -15,7 +15,7 @@ class TimestampModel(models.Model):
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField()
     
-    def save(self):
+    def save(self, *args, **kwargs):
         """
         Override the save method to automatically set the created_at and
         updated_at fields with current date info.
