@@ -9,5 +9,8 @@ class PublicChatForm(forms.ModelForm):
     """Public-facing Chat form used in the web-interface for users."""
     
     class Meta:
-        fields = ('text',)
+        fields = (
+            'friend_groups',
+            'text',
+        )
         model = Chat
