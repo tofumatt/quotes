@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('',
-    url('^chats$', 'chats.views.index', name='chats_index'),
-    url('^chats/new$', 'chats.views.new', name='chats_new'),
-    url('^chats/(?P<id>\d+)$', 'chats.views.show', name='chats_show'),
+urlpatterns = patterns('chats.views',
+    url('^chats/$', 'index', name='chats_index'),
+    url('^chats/new/$', 'new', name='chats_new'),
+    url('^chats/(?P<id>\d+)/$', 'show', name='chats_show'),
 )
