@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.html import escape
+from django.utils.html import escape, urlize
 from django.utils.text import truncate_words
 
 from automatic_timestamps.models import TimestampModel
@@ -31,15 +31,15 @@ class Chat(TimestampModel):
         for line in self.text.splitlines():
             line_sections = escape(line).split(': ', 1)
             if len(line_sections) > 1:
-                html += u'<{tag} class="line"><span class="author">{author}: </span><span class="text">{text}</span></{tag}>'.format(
+                html += u'<{tag} class="line"><span class="author">{author}: </span><span class="text">{text}</span><span class="post-text"></span></{tag}>'.format(
                     author=line_sections[0],
                     tag=tag,
-                    text=line_sections[1],
+                    text=urlize(line_sections[1]),
                 )
             else:
-                html += u'<{tag} class="no-author line"><span class="text">{text}</span></{tag}>'.format(
+                html += u'<{tag} class="no-author line"><span class="text">{text}</span><span class="post-text"></span></{tag}>'.format(
                     tag=tag,
-                    text=line_sections[0],
+                    text=urlize(line_sections[0]),
                 )
         
         return html
