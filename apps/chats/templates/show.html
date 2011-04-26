@@ -4,8 +4,12 @@
 
 {% block body %}
 	{% if chat %}
-		{{ chat.as_html|safe }}
+		{% include "_chat.html" %}
 	{% else %}
 		Can't read that one!
 	{% endif %}
+	
+	<p><a href="{% url chats-index %}">Browse all quotes</a></p>
 {% endblock body %}
+
+{% block css_classes %}chat-show{% endblock css_classes %}
