@@ -3,11 +3,13 @@
 {% block body %}
 	<h3>{% block title %}{{ _('Add a New Quote') }}{% endblock %}</h3>
 	
-	<form action="{{ SITE_URL }}quotes/new" method="POST">
+	<form action="{% url chats-new %}" method="POST" id="chats-new">
 		{% csrf_token %}
 		
 		{{ form.text }}
 		
 		<input type="submit" value="Add Quote">
+		
+		<div class="clear"></div>
 	</form>
 {% endblock body %}
