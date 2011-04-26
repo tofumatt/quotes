@@ -1,0 +1,18 @@
+<article class="chat">
+	<div class="content">
+		{{ chat.as_html|safe }}
+	</div>
+	
+	<aside>
+		<time><span class="off-screen">Posted: </span>{{ chat.created_at }}</time>
+		
+		{% if chat.friend_groups.exists %}
+			<h4 class="off-screen">Posted in:</h4>
+			<ul class="friend-groups inline">
+				{% for group in chat.friend_groups_ordered %}
+					<li><a href="#">{{ group.name }}</a></li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</aside>
+</article>
