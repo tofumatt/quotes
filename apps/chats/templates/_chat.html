@@ -4,6 +4,8 @@
 	</div>
 	
 	<aside>
+		<a href="{% url chats-show chat.id %}" class="permalink">♦ Permalink ♦</a>
+		
 		<time><span class="off-screen">Posted: </span>{{ chat.created_at }}</time>
 		
 		{% if chat.friend_groups.exists %}
