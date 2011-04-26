@@ -40,7 +40,7 @@
 					
 					text = $(textarea).val();
 					
-					var lines = (((text.length) - (text.length % 60)) / 60) + 2,
+					var lines = ((text.length - (text.length % 60)) / 60) + 2,
 					multiplier = $(textarea).css('line-height') || 1;
 					
 					$(textarea).css({
