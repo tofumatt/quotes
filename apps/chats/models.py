@@ -44,6 +44,10 @@ class Chat(TimestampModel):
         
         return html
     
+    def friend_groups_ordered(self):
+        """Return all Friend Groups this Chat belongs to, ordered by name (ascending)."""
+        return self.friend_groups.all().order_by('name')
+    
     def __unicode__(self):
         """Return the first six words from this chat's text field."""
         return truncate_words(self.text, 6)
