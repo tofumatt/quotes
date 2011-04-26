@@ -328,6 +328,10 @@ table.bold-headers th {
 	clear: right;
 }
 
+.inline li {
+	display: inline;
+}
+
 .relative {
 	position: relative;
 }
