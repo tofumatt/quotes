@@ -228,7 +228,7 @@ select {
 	}
 
 textarea {
-	height: 2.2em;
+	height: 24px;
 	line-height: 1.1em;
 	overflow-y: hidden;
 	padding: 3px;
