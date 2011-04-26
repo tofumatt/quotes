@@ -15,13 +15,13 @@ body {
 
 header {
 	display: block;
-	margin: 0 0 50px;
+	margin: 0 0 100px;
 }
 
 footer {
 	border-top: 1px solid #333;
 	color: #666;
-	margin: 40px auto 0;
+	margin: 90px auto 0;
 	padding: 9px 0 0;
 }
 
@@ -50,8 +50,8 @@ footer {
 }
 
 a {
+	border-bottom: 1px solid;
 	color: #3d4e99;
-	text-decoration: underline;
 	transition: all 100ms ease-in-out;
 	-moz-transition: all 100ms ease-in-out;
 	-o-transition: all 100ms ease-in-out;
@@ -59,10 +59,8 @@ a {
 }
 	
 	a:hover, a:focus {
-		background: #a5adcc;
-		background: rgba(61, 78, 153, .25);
-		color: #030303;
-		text-decoration: none;
+		background: rgba(204, 20, 20, .7);
+		color: #fefefe;
 		text-shadow: none;
 	}
 	
@@ -100,6 +98,17 @@ h2 {
 	line-height: 1.2em;
 	text-align: center;
 	text-shadow: #aaa 1px 1px 1px;
+}
+
+h3 {
+	color: #252525;
+	font-size: 22px;
+	font-weight: bold;
+	line-height: 1.4em;
+	margin: -25px 0 25px;
+	text-align: left;
+	text-decoration: underline;
+	text-shadow: #bbb 1px 1px 3px;
 }
 
 pre {
@@ -173,7 +182,7 @@ dl dd {
 }
 
 /** Common form elements */
-label, input, select, textarea {
+.button, label, input, select, textarea {
 	transition: all 100ms ease-in-out;
 	-moz-transition: all 100ms ease-in-out;
 	-o-transition: all 100ms ease-in-out;
@@ -206,10 +215,6 @@ input[type=text], input[type=password], select, textarea {
 	padding: 1px 3px;
 	width: 300px;
 }
-	
-	input.input-placeholder {
-		color: #aaa;
-	}
 
 select {
 	outline: 0;
@@ -226,7 +231,8 @@ textarea {
 	line-height: 1.1em;
 	overflow-y: hidden;
 	padding: 3px;
-	width: 320px;
+	resize: none;
+	width: 425px;
 }
 
 input:hover, select:hover, textarea:hover, input:active, select:active, textarea:active {
@@ -240,9 +246,36 @@ input:focus, select:focus, textarea:focus {
 	-webkit-box-shadow: 0 0 6px #1e72b2;
 }
 
-/** jQuery Tabs */
-.ui-tabs-hide {
-	display: none;
+.button, input[type=submit] {
+	background-color: #fff;
+	border: 1px solid #595959;
+	box-shadow: 0 0 3px #ddd;
+	-moz-box-shadow: 0 0 3px #ddd;
+	-webkit-box-shadow: 0 0 3px #ddd;
+	color: #141414;
+	cursor: pointer;
+	font-size: 1.2em;
+	margin: 5px 0;
+	outline: 0;
+	padding: 5px 15px;
+	text-decoration: none;
+	width: auto;
+}
+
+.button:hover, .button:focus, input[type=submit]:hover, input[type=submit]:focus {
+	background-color: #eee;
+	box-shadow: 0 0 3px #ddd;
+	-moz-box-shadow: 0 0 3px #ddd;
+	-webkit-box-shadow: 0 0 3px #ddd;
+	cursor: default;
+	outline: 0;
+}
+
+.button:active, input[type=submit]:focus {
+	box-shadow: 0 1px 12px #030303;
+	-moz-box-shadow: 0 1px 12px #030303;
+	-webkit-box-shadow: 0 1px 12px #030303;
+	color: #030303
 }
 
 /** Common classes */
@@ -282,34 +315,6 @@ table.bold-headers th {
 	-webkit-box-shadow: 0 1px 6px #ccc;
 }
 
-.button, .button:hover, .button:focus {
-	background: url(../images/new/button-bg.png) 0 2.5px repeat-x;
-	border: 1px solid #595959;
-	color: #141414;
-	cursor: pointer;
-	font-size: 1.2em;
-	margin: 5px 0;
-	outline: 0;
-	padding: 5px 15px;
-	text-decoration: none;
-	text-shadow: 0 0 3px rgba(0, 0, 0, 0.15) !important;
-}
-
-.button:hover, .button:focus {
-	background: #eee;
-	box-shadow: 0 1px 6px #030303;
-	-moz-box-shadow: 0 1px 6px #030303;
-	-webkit-box-shadow: 0 1px 6px #030303;
-	text-shadow: 0 0 6px #c8c8c8 !important;
-}
-
-.button:active {
-	box-shadow: 0 1px 12px #030303;
-	-moz-box-shadow: 0 1px 12px #030303;
-	-webkit-box-shadow: 0 1px 12px #030303;
-	text-shadow: 0 0 6px #000 !important;
-}
-
 .clear {
 	clear: both;
 }
@@ -320,50 +325,6 @@ table.bold-headers th {
 
 .clear-right {
 	clear: right;
-}
-
-.disabled, .disabled *, .disabled *:hover { /* Grey out text inside a container marked "disabled" */
-	border-color: #aaa;
-	color: #aaa !important;
-}
-
-p.footnote {
-	font-size: .8em;
-	text-align: right;
-}
-
-p.full-width, ul.full-width, ol.full-width, dl.full-width {
-	margin-right: 6%;
-}
-
-.sidebar p.full-width {
-	margin-right: 0;
-}
-
-.no-bullets li {
-	list-style: none;
-}
-
-.no-margins li {
-	margin-left: 0;
-}
-
-a.photo-link {
-	display: block;
-	outline: 0;
-	padding: 2px;
-	-webkit-transition: all 200ms ease-in-out;
-	-moz-transition: all 200ms ease-in-out;
-	-o-transition: all 200ms ease-in-out;
-	transition: all 200ms ease-in-out;
-}
-
-a.photo-link:hover, a.photo-link:focus {
-	background: #9cf;
-}
-
-a.photo-link:active {
-	background: #f99;
 }
 
 .relative {
@@ -382,19 +343,18 @@ a.photo-link:active {
 	text-align: center;
 }
 
-/*
-	Hide elements or position them off-screen. Use js-hide and
-	js-off-screen to apply hidden-type styles only to elements
-	if JavaScript is enabled on this page.
-*/
-.hide, body.js .js-hide, body .js-show {
+.hide, body.js .js-hide, body.no-js .js-show {
 	display: none;
 }
 
-.off-screen, body.js .js-off-screen {
+.off-screen, body.js .js-off-screen, body.no-js .no-js-off-screen {
+	left: -9999px;
 	position: absolute;
-	top: 0;
-	text-indent: -9999px;
+	top: -9999px;
+}
+
+html[dir=rtl] .off-screen, html[dir=rtl] body.js .js-off-screen, html[dir=rtl] body.no-js .no-js-off-screen {
+	right: -9999px;
 }
 
 /** Messages */
@@ -446,7 +406,7 @@ a.photo-link:active {
 	color: #2b1e04;
 }
 
-#messages-container .success {
+#messages-container .notice {
 	background: #b9ffb3;
 	border-color: #428c3c;
 	box-shadow: 0 0 3px #428c3c;
@@ -454,3 +414,42 @@ a.photo-link:active {
 	-webkit-box-shadow: 0 0 3px #428c3c;
 	color: #1b3818;
 }
+
+/** Actual Site Styles */
+.chat .content {
+	background: #fefefe;
+	border: 2px solid #a50000;
+	display: block;
+	font-size: 1.1em;
+	line-height: 1.4em;
+	margin: 0 auto;
+	padding: 10px;
+	width: 85%;
+}
+	
+	.chat .content .author {
+		float: left;
+		font-size: 1.2em;
+		font-weight: bold;
+		line-height: 1.1em;
+		width: 10%;
+	}
+	
+	.chat .content .text {
+		float: left;
+		margin: 0 0 0 1%;
+		width: 89%;
+	}
+	
+	.chat .content .post-text {
+		clear: both;
+		display: block;
+	}
+	
+	.chat aside time {
+		display: block;
+		font-size: .9em;
+		font-style: italic;
+		margin: 2.5px 7% 15px 0;
+		text-align: right;
+	}
