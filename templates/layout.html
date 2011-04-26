@@ -24,7 +24,20 @@
 					<h2>{{ _('Collection of the funny things you and your friends say that no one should read.') }}</h2>
 				</header>
 				
-				{% block body %}{% endblock %}
+				<div id="content">
+					{% block body %}{% endblock %}
+				</div>
+				
+				<footer>
+					<p>
+						All content belongs to the original chat author.<br>
+						<a href="https://github.com/tofumatt/quotes">Quotes.txt is open-source</a>.
+					</p>
+					
+					<p>
+						Quotes.txt © 2011 <a href="http://lonelyvegan.com">Matthew Riley MacPherson</a>. <a href="http://twitter.com/tofumatt">Follow me on Twitter</a>.
+					</p>
+				</footer>
 			</div>
 		</div>
 		
@@ -32,7 +45,7 @@
 		<script src="http://www.google.com/jsapi"></script>
 		<script>google.load('jquery', '1.5');</script>
 		<script>google.load('jqueryui', '1.8');</script>
-		<script>SITE_URL = '{{ SITE_URL }}'; // Set our site's URL</script>
+		<script>SITE_URL = '{{ SITE_URL }}';</script>
 		<script src="{{ MEDIA_URL }}javascripts/app.js"></script>
 	</body>
 </html>
