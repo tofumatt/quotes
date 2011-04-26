@@ -31,7 +31,7 @@ class Chat(TimestampModel):
         for line in self.text.splitlines():
             line_sections = escape(line).split(': ', 1)
             if len(line_sections) > 1:
-                html += u'<{tag} class="line"><span class="author">{author}</span>: <span class="text">{text}</span></{tag}>'.format(
+                html += u'<{tag} class="line"><span class="author">{author}: </span><span class="text">{text}</span></{tag}>'.format(
                     author=line_sections[0],
                     tag=tag,
                     text=line_sections[1],
