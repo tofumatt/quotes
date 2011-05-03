@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext as _
@@ -47,6 +47,13 @@ def new(request):
     
     if request.method == 'POST':
         form = PublicChatForm(request.POST)
+        if form.is_valid(): # All validation rules pass
+            chat = form.save(commit=False)
+            chat.posted_by = request.user
+            
+            chat.save()
+            
+            return HttpResponseRedirect('/chats/')
     else:
         form = PublicChatForm()
     
