@@ -423,7 +423,7 @@ html[dir=rtl] .off-screen, html[dir=rtl] body.js .js-off-screen, html[dir=rtl] b
 /** Actual Site Styles */
 .chat {
 	display: block;
-	margin: 0 0 15px;
+	padding: 0 0 15px;
 }
 
 .chat .content {
@@ -455,6 +455,29 @@ html[dir=rtl] .off-screen, html[dir=rtl] body.js .js-off-screen, html[dir=rtl] b
 		display: block;
 	}
 	
+	/*
+	.chat aside {
+		height: 0;
+		opacity: 0;
+		overflow: hidden;
+		transition: all 200ms ease-in-out;
+		-moz-transition: all 200ms ease-in-out;
+		-o-transition: all 200ms ease-in-out;
+		-webkit-transition: all 200ms ease-in-out;
+	}
+	
+	.chat:hover aside, .chat:focus aside {
+		height: auto;
+		opacity: 1;
+	}
+	*/
+	
+	.chat aside a.permalink {
+		float: left;
+		font-size: .8em;
+		margin: 2.5px 0 0 7.5%;
+	}
+	
 	.chat aside time {
 		display: block;
 		font-size: .9em;
@@ -467,3 +490,12 @@ html[dir=rtl] .off-screen, html[dir=rtl] body.js .js-off-screen, html[dir=rtl] b
 		margin: 0 7.5% 0 0;
 		text-align: right;
 	}
+
+/** New Chat /chats/new */
+#chats-new #id_text {
+	float: left;
+}
+
+#chats-new input[type=submit] {
+	margin: -2.5px 0 0 10px;
+}
