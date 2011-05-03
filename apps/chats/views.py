@@ -45,7 +45,10 @@ def show(request, id):
 def new(request):
     """Display the form to add a new quote to the database."""
     
-    form = PublicChatForm()
+    if request.method == 'POST':
+        form = PublicChatForm(request.POST)
+    else:
+        form = PublicChatForm()
     
     return render_to_response('new.html', {
         'form': form,
