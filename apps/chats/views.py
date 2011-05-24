@@ -15,7 +15,8 @@ def index(request):
     chats = Chat.objects.all().order_by('-created_at')
     
     if request.user.is_authenticated():
-        chats = chats.filter(friend_groups__in=request.user.get_profile().friend_groups.all().values_list('id'))
+        chats = chats.filter(friend_groups__in=request.user.get_profile().\
+                             friend_groups.all().values_list('id'))
     else:
         chats = chats.filter(friend_groups__isnull=True)
     

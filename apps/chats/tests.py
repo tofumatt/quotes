@@ -20,7 +20,8 @@ class ChatTest(TestCase):
         friendgroup_webchat = FriendGroup(name='webchat')
         friendgroup_webchat.save()
         
-        user_matt = User.objects.create_user('matt', 'test@test.com', DEFAULT_PASSWORD)
+        user_matt = User.objects.create_user(
+            'matt', 'test@test.com', DEFAULT_PASSWORD)
         user_matt.save()
         user_matt.get_profile().friend_groups.add(friendgroup_webchat)
         

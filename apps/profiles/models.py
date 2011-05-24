@@ -30,15 +30,18 @@ class UserProfile(TimestampModel):
     
     def in_friend_groups(self, groups):
         """
-        Check to see if this User is part of any of the supplied friend_groups.
-        If the user is a member of any of the groups (or no friend_groups exist),
-        we return True.
+        Check to see if this User is part of any of the supplied
+        friend_groups.
+        
+        If the user is a member of any of the groups (or no friend_groups
+        exist), we return True.
         """
         
         return bool(
             bool(groups.exists()) == False
             or
-            self.friend_groups.filter(id__in=groups.all().values_list('id')).exists()
+            self.friend_groups.filter(
+                id__in=groups.all().values_list('id')).exists()
         )
     
     def __unicode__(self):

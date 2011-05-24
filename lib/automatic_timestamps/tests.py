@@ -33,7 +33,9 @@ class TimestampModelTest(TestCase):
         self.assertNotEqual(last_time_saved, model.updated_at)
     
     def test_created_timestamp_is_not_updated(self):
-        """Test that the created_at field is not changed on subsequent saves."""
+        """
+        Test that the created_at field is not changed on subsequent saves.
+        """
         model = GenericTimestampTestModel()
         model.save()
         

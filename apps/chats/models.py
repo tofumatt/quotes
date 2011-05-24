@@ -13,8 +13,8 @@ class Chat(TimestampModel):
     view-restricted to specific groups.
     """
     
-    # A chat without any associated Friend Groups is considered public and will
-    # be viewable to the entire world!
+    # A chat without any associated Friend Groups is considered public and
+    # will be viewable to the entire world!
     friend_groups = models.ManyToManyField('profiles.FriendGroup', blank=True)
     posted_by = models.ForeignKey(User)
     text = models.TextField()
@@ -24,7 +24,8 @@ class Chat(TimestampModel):
         Return an HTML representation of this chat, including tags marking
         the author and text selection accordingly.
         
-        Use the tag argument to customize the tag that wraps each line in a chat.
+        Use the tag argument to customize the tag that wraps each line in
+        a chat.
         """
         
         html = u''
@@ -45,7 +46,10 @@ class Chat(TimestampModel):
         return html
     
     def friend_groups_ordered(self):
-        """Return all Friend Groups this Chat belongs to, ordered by name (ascending)."""
+        """
+        Return all Friend Groups this Chat belongs to, ordered by
+        name (ascending).
+        """
         return self.friend_groups.all().order_by('name')
     
     def __unicode__(self):
