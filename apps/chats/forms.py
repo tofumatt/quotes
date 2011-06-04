@@ -7,7 +7,7 @@ from profiles.models import FriendGroup
 
 class PublicChatForm(forms.ModelForm):
     """Public-facing Chat form used in the web-interface for users."""
-    
+
     class Meta:
         fields = (
             'friend_groups',

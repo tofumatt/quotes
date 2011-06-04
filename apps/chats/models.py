@@ -12,13 +12,13 @@ class Chat(TimestampModel):
     purposefully out of context) posted by a user. It is often
     view-restricted to specific groups.
     """
-    
+
     # A chat without any associated Friend Groups is considered public and
     # will be viewable to the entire world!
     friend_groups = models.ManyToManyField('profiles.FriendGroup', blank=True)
     posted_by = models.ForeignKey(User)
     text = models.TextField()
-    
+
     def as_html(self, tag='div'):
         """
         Return an HTML representation of this chat, including tags marking
@@ -27,7 +27,7 @@ class Chat(TimestampModel):
         Use the tag argument to customize the tag that wraps each line in
         a chat.
         """
-        
+
         html = u''
         for line in self.text.splitlines():
             line_sections = escape(line).split(': ', 1)
@@ -42,16 +42,16 @@ class Chat(TimestampModel):
                     tag=tag,
                     text=urlize(line_sections[0]),
                 )
-        
+
         return html
-    
+
     def friend_groups_ordered(self):
         """
         Return all Friend Groups this Chat belongs to, ordered by
         name (ascending).
         """
         return self.friend_groups.all().order_by('name')
-    
+
     def __unicode__(self):
         """Return the first six words from this chat's text field."""
         return truncate_words(self.text, 6)
