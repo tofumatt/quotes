@@ -23,7 +23,7 @@ class Chat(TimestampModel):
         """
         Return an HTML representation of this chat, including tags marking
         the author and text selection accordingly.
-        
+
         Use the tag argument to customize the tag that wraps each line in
         a chat.
         """
